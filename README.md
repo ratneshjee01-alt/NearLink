@@ -76,27 +76,6 @@
 
 ---
 
-## 🎓 Presentation Script (5 Minutes)
-
-### Minute 1 — Show the architecture
-> "NearLink uses MVVM Clean Architecture. The data layer has BleManager for real Bluetooth communication, NfcManager for tap pairing, CryptoManager for AES-256-GCM encryption, and Room database for offline storage."
-
-### Minute 2 — NFC Demo
-> "Watch — I tap Phone A to Phone B. No internet involved. What just happened: Phone B read an NDEF record containing Phone A's device ID and public key. Our PBKDF2 key derivation then generated a shared AES-256 key locally on each device."
-> (Show the green "Paired via NFC" message)
-
-### Minute 3 — Send a Message
-> "I type a message on Phone A. Before it leaves the app it's encrypted with AES-256-GCM — that's authenticated encryption with a 12-byte random IV. The ciphertext goes over BLE GATT to Phone B, which decrypts it with the same shared key."
-> (Show message delivered with tick)
-
-### Minute 4 — Mesh Routing  
-> "The Mesh tab shows live topology. If Phone A can't reach Phone C directly, the packet hops through Phone B. We track packet IDs to prevent relay loops. Max 3 hops — extending range to approximately 30 metres indoors."
-
-### Minute 5 — Airplane Mode Demo
-> (Turn on Airplane Mode on both phones — re-enable BT and NFC manually)
-> "Still works. No internet. No SIM. No server. Everything is local."
-
----
 
 ## 🏗️ Architecture
 
